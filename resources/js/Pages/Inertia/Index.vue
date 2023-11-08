@@ -16,5 +16,17 @@ defineProps({
             本文: {{ blog.content }}
         </li>
     </ul>
-    INDEX.VUE
+    <p>INDEX.VUE</p>
+
+    <div id="list">
+        <form>
+            <label for="todo">やること:</label>
+            <input id="todo" type="text" size="40" v-model="todo" />
+            <input type="button" value="追加" v-on:click="onadd" />
+            <input type="button" value="削除" v-on:click="onremove" />
+        </form>
+        <transition-group tag="ul">
+            <li v-for="items in item" v-bind:key="item">{{ item }}</li>
+        </transition-group>
+    </div>
 </template>
